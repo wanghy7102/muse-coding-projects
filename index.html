@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Muse Coding Projects</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Muse Coding Projects</h1>
+    <p>A small tracker for coding projects. Add a project, then move it from Idea to Building to Shipped.</p>
+  </header>
+
+  <main>
+    <section class="add-form">
+      <h2>Add a project</h2>
+      <form id="project-form">
+        <label>
+          Name
+          <input id="name" name="name" type="text" required maxlength="100" placeholder="e.g. Interview prep tracker">
+        </label>
+        <label>
+          Language / stack
+          <input id="stack" name="stack" type="text" maxlength="100" placeholder="e.g. Go, React, TypeScript">
+        </label>
+        <label>
+          Status
+          <select id="status" name="status">
+            <option value="idea">Idea</option>
+            <option value="building">Building</option>
+            <option value="shipped">Shipped</option>
+          </select>
+        </label>
+        <label>
+          Repo link (optional)
+          <input id="repo" name="repo" type="url" maxlength="500" placeholder="https://github.com/username/repo">
+        </label>
+        <label class="wide">
+          Note
+          <textarea id="note" name="note" rows="2" maxlength="500" placeholder="What is this for?"></textarea>
+        </label>
+        <button type="submit">Add project</button>
+      </form>
+    </section>
+
+    <section class="board" id="board">
+      <div class="column" data-status="idea">
+        <h2>Idea <span class="count" id="count-idea">0</span></h2>
+        <div class="cards" id="cards-idea"></div>
+      </div>
+      <div class="column" data-status="building">
+        <h2>Building <span class="count" id="count-building">0</span></h2>
+        <div class="cards" id="cards-building"></div>
+      </div>
+      <div class="column" data-status="shipped">
+        <h2>Shipped <span class="count" id="count-shipped">0</span></h2>
+        <div class="cards" id="cards-shipped"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Projects are saved in this browser only (localStorage). The Muse space version saves them in a shared database instead.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
